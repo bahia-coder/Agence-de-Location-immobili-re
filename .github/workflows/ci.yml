@@ -20,17 +20,6 @@ jobs:
           extensions: mbstring, xml, curl, gd, mysqlnd, zip, dom # Les extensions PHP nécessaires à Laravel
           coverage: none #  Peut être 'pcov' ou 'xdebug' si vous voulez la couverture de code
 
-      - name: Copy .env
-        run: cp .env.example .env
-
-      - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist
-
-      - name: Generate Application Key
-        run: php artisan key:generate --force
-
-      - name: Run Database Migrations
-        run: php artisan migrate --force
-
       - name: Run Tests
-        run: php artisan test
+        run:cd projet
+	run: php artisan test
