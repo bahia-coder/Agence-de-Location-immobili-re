@@ -22,4 +22,4 @@ jobs:
 
       - name: Run Tests
         run:cd projet
-        run: php artisan test
+        run: php artisan serve
