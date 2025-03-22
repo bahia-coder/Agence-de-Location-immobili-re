@@ -18,8 +18,9 @@ jobs:
         with:
           php-version: '8.1' # Ou la version de PHP que vous utilisez
           extensions: mbstring, xml, curl, gd, mysqlnd, zip, dom # Les extensions PHP nécessaires à Laravel
-          coverage: none #  Peut être 'pcov' ou 'xdebug' si vous voulez la couverture de code
+          coverage: none # Peut être 'pcov' ou 'xdebug' si vous voulez la couverture de code
 
       - name: Run Tests
-        run:cd projet
-        run: php artisan serve
+        run: |
+          cd projet
+          php artisan test
