@@ -19,12 +19,8 @@ jobs:
           php-version: 8.1
 
       - name: Installer les dépendances via Composer
-        run: composer install --no-progress --prefer-dist
+        run: |
+          composer install --no-progress --prefer-dist
 
-      - name: Vérifier si Composer est bien installé
-        run: composer --version
-
-      - name: Exécuter les tests avec plus de détails
-        run: php artisan test --verbose
-
-
+      - name: Exécuter les tests PHPUnit
+        run: php artisan test
