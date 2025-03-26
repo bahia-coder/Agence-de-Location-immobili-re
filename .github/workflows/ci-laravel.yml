@@ -4,56 +4,22 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  laravel-tests:
+  test:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test_db
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     steps:
-      - name: 🛒 Cloner le dépôt
+      - name: Cloner le dépôt
         uses: actions/checkout@v3
 
-      - name: 🛠️ Installer PHP et Composer
+      - name: Installer PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.1
-          extensions: mbstring, pdo, mysql
-          coverage: none
 
-      - name: 📦 Installer les dépendances
-        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+      - name: Installer les dépendances via Composer
+        run: composer install --no-progress --prefer-dist
 
-      - name: 📋 Copier le fichier .env
-        run: cp .env.example .env
-
-      - name: 🔑 Générer la clé d’application
-        run: php artisan key:generate
-
-      - name: 🗄️ Configurer la base de données
-        run: |
-          php artisan migrate --force
-
-      - name: 🧪 Lancer les tests PHPUnit
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: test_db
-          DB_USERNAME: user
-          DB_PASSWORD: password
+      - name: Exécuter les tests
         run: php artisan test
