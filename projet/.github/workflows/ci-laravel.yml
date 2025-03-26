@@ -16,7 +16,7 @@ jobs:
       - name: 📥 Cloner le dépôt
         uses: actions/checkout@v3
 
-      - name: 📂 Vérifier l’arborescence
+      - name: 📂 Vérifier l’arborescence des fichiers
         run: ls -R
 
       - name: 🏗️ Installer PHP et Composer
@@ -27,22 +27,19 @@ jobs:
           coverage: none
 
       - name: 📦 Installer les dépendances Composer
-        run: |
-          cd projet  # Se déplacer dans le bon dossier
-          composer install --no-progress --prefer-dist
+        working-directory: projet
+        run: composer install --no-progress --prefer-dist
 
       - name: 🔑 Générer la clé d’application
+        working-directory: projet
         run: |
-          cd projet
           cp .env.example .env
           php artisan key:generate
 
       - name: 🛠️ Lancer les migrations
-        run: |
-          cd projet
-          php artisan migrate --force
+        working-directory: projet
+        run: php artisan migrate --force
 
       - name: 🧪 Exécuter les tests
-        run: |
-          cd projet
-          php artisan test
+        working-directory: projet
+        run: php artisan test
