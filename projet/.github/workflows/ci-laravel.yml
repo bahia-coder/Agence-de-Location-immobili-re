@@ -27,19 +27,22 @@ jobs:
           coverage: none
 
       - name: 📦 Installer les dépendances Composer
-        working-directory: projet
-        run: composer install --no-progress --prefer-dist
+        run: |
+          cd projet
+          composer install --no-progress --prefer-dist
 
       - name: 🔑 Générer la clé d’application
-        working-directory: projet
         run: |
+          cd projet
           cp .env.example .env
           php artisan key:generate
 
       - name: 🛠️ Lancer les migrations
-        working-directory: projet
-        run: php artisan migrate --force
+        run: |
+          cd projet
+          php artisan migrate --force
 
       - name: 🧪 Exécuter les tests
-        working-directory: projet
-        run: php artisan test
+        run: |
+          cd projet
+          php artisan test
