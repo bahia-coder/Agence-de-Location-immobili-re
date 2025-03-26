@@ -2,8 +2,10 @@ name: Laravel CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
@@ -18,9 +20,13 @@ jobs:
         with:
           php-version: 8.1
 
-      - name: Installer les dépendances via Composer
+      - name: Installer Composer
         run: |
-          composer install --no-progress --prefer-dist
+          curl -sS https://getcomposer.org/installer | php
+          sudo mv composer.phar /usr/local/bin/composer
+
+      - name: Installer les dépendances
+        run: composer install --no-progress --prefer-dist
 
       - name: Exécuter les tests PHPUnit
         run: php artisan test
