@@ -1,0 +1,36 @@
+name: Laravel CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: 📂 Vérifier l’arborescence des fichiers
+        run: ls -R
+
+      - name: 🎉 Installer les dépendances PHP et Composer
+        run: |
+          cd projet
+          composer install --no-progress --prefer-dist
+
+      - name: 🔑 Générer la clé d’application
+        run: |
+          cd projet
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: 🧪 Exécuter les tests
+        run: |
+          cd projet
+          php artisan test
