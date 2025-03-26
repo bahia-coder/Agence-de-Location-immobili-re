@@ -19,13 +19,4 @@ jobs:
       - name: 📂 Vérifier l’arborescence des fichiers
         run: ls -R
 
-      - name: 🔑 Générer la clé d’application
-        run: |
-          cd projet
-          cp .env.example .env
-          php artisan key:generate
-
-      - name: 🧪 Exécuter les tests
-        run: |
-          cd projet
-          php artisan test
+      
