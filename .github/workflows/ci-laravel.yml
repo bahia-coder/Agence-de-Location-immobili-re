@@ -26,3 +26,5 @@ jobs:
 
       - name: Exécuter les tests avec plus de détails
         run: php artisan test --verbose
+
+
