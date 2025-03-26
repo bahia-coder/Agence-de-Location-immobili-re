@@ -2,33 +2,47 @@ name: Laravel CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  test:
+  laravel-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cloner le dépôt
+      - name: 📥 Cloner le dépôt
         uses: actions/checkout@v3
 
-      - name: Installer PHP
+      - name: 📂 Vérifier l’arborescence
+        run: ls -R
+
+      - name: 🏗️ Installer PHP et Composer
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.1
+          extensions: mbstring, pdo, mysql
+          coverage: none
 
-      - name: Installer Composer
+      - name: 📦 Installer les dépendances Composer
         run: |
-          curl -sS https://getcomposer.org/installer | php
-          sudo mv composer.phar /usr/local/bin/composer
+          cd projet  # Se déplacer dans le bon dossier
+          composer install --no-progress --prefer-dist
 
-      - name: Accéder au répertoire 'projet'
-        run: cd projet
+      - name: 🔑 Générer la clé d’application
+        run: |
+          cd projet
+          cp .env.example .env
+          php artisan key:generate
 
-      - name: Installer les dépendances
-        run: composer install --no-progress --prefer-dist
+      - name: 🛠️ Lancer les migrations
+        run: |
+          cd projet
+          php artisan migrate --force
 
-      - name: Exécuter les tests PHPUnit
-        run: php artisan test
+      - name: 🧪 Exécuter les tests
+        run: |
+          cd projet
+          php artisan test
