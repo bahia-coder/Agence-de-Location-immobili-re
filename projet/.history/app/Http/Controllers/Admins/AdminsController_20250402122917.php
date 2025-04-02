@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Admin;
-use App\Http\Requests\AdminStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -63,18 +62,5 @@ class AdminsController extends Controller
             return redirect()->route('users.display')->with('success', 'User added successfully');
         }
     }
-
-    public function destroy($id)
-    {
-        $user = User::find($id);
-
-        if ($user) {
-            $user->delete();
-            return redirect()->route('users.display')->with('success', 'User deleted successfully');
-        }
-
-        return redirect()->route('users.display')->with('error', 'User not found');
-    }
-
 
 }
