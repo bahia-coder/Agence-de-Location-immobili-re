@@ -41,10 +41,6 @@
                                     @csrf
                                 </form>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users.display') }}"
-                                    style="margin-left: 20px;">Users</a>
-                            </li>
                         </ul>
                     @else
                         <li class="nav-item">
@@ -52,7 +48,10 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                      
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admins.display') }}"
+                                    style="margin-left: 20px;">Admins</a>
+                            </li>
                     @endauth
                     </ul>
                 </div>

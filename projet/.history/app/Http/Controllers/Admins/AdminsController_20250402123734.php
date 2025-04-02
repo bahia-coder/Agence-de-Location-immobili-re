@@ -64,17 +64,4 @@ class AdminsController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        $user = User::find($id);
-
-        if ($user) {
-            $user->delete();
-            return redirect()->route('users.display')->with('success', 'User deleted successfully');
-        }
-
-        return redirect()->route('users.display')->with('error', 'User not found');
-    }
-
-
 }
