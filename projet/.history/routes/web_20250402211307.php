@@ -39,10 +39,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 Route::get('/admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware('auth.check');
 
 
-
-    //  hometypes
-    Route::get('allHomeTypes', [App\Http\Controllers\Admins\HometypesController::class, 'allHomeTypes'])->name('admins.hometypes');
-
     // create home type
     Route::get('createHomeTypes', [App\Http\Controllers\Admins\HometypesController::class, 'createHomeTypes'])->name('admins.create.hometypes');
     Route::post('createHomeTypes', [App\Http\Controllers\Admins\HometypesController::class, 'storeHomeTypes'])->name('admins.store.hometypes');
