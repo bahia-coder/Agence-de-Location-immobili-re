@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
-use App\Models\Prop\PropImage;
-use App\Models\Prop\HomeType;
 use App\Models\Admin\Admin;
 use App\Models\Prop\Property;
 use App\Http\Requests\AdminStoreRequest;
