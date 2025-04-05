@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="site-blocks-cover inner-page-cover overlay"
-        style="background-image: url({{ asset('assets/images/' . $singleProp->image . '') }});" data-aos="fade">
+    style="background-image: url('/assets/images/example-image.jpg');" data-aos="fade">
+
+
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-10">
