@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Props\PropertiesController;
-use App\Http\Controllers\HomeController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +23,6 @@ Auth::routes();
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 
-Route::get('/property/{id}', [PropertiesController::class, 'single'])->name('property.single');// Dans le fichier routes/web.php
-Route::post('/save-property/{id}', [PropertiesController::class, 'save'])->name('save.prop');
 
 
 Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
@@ -76,13 +71,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
 Route::get('/admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware('auth.check');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/property/{id}', [PropertiesController::class, 'single'])->name('single.prop');
-Route::post('/search', [PropertiesController::class, 'search'])->name('search.prop');
 
-Route::get('/rent', [PropertiesController::class, 'showRent'])->name('rent.prop');
 
-Route::get('/buy', [PropertiesController::class, 'showBuy'])->name('buy.prop');
-Route::get('/price/asc', [PropertiesController::class, 'sortByPriceAsc'])->name('price.asc.prop');
-Route::get('/price/desc', [PropertiesController::class, 'sortByPriceDesc'])->name('price.desc.prop');
-Route::post('/request/{propId}', [PropertiesController::class, 'insertRequest'])->name('insert.request');
+   
