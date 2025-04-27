@@ -162,6 +162,54 @@
                         @endif
 
                     </div>
+                    <div class="bg-white widget border rounded">
+                        <form method="POST" action="{{ route('save.prop', $singleProp->id) }}"
+                            class="form-contact-agent">
+                            @csrf
+                            <h3 class="h4 text-black widget-title mb-3">Save Properties</h3>
+                            @if (isset(Auth::user()->id))
+                                @if ($validateSavingPropsCount > 0)
+                                    <p class="alert alert-warning">
+                                        You already saved properties this property
+                                    </p>
+                                @else
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $singleProp->id }}" id="name"
+                                            name="prop_id" type="hidden" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" id="title" name="title" type="hidden"
+                                            value="{{ $singleProp->title }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $singleProp->image }}" id="name"
+                                            name="image" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $singleProp->location }}" id="email"
+                                            name="location" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $singleProp->price }}" id="email"
+                                            name="price" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="phone" name="submit" class="btn btn-primary"
+                                            value="Save Property">
+                                    </div>
+                                @endif
+                            @else
+                                <div class="form-group">
+                                    <a class="alert alert-success" href="{{ route('login') }}">Login </a>
+                                    <p class="alert alert-success mt-2">to send e request to
+                                        this property</p>
+                                </div>
+                            @endif
+
+                        </form>
+
+                    </div>
+
 
                     <div class="bg-white widget border rounded">
                         <h3 class="h4 text-black widget-title mb-3 ml-0">Share</h3>
