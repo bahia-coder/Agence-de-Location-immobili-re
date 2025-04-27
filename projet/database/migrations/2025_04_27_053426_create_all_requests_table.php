@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('all_requests', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('prop_id');
+            $table->string('agent_name')->nullable(); // Ajoute la colonne 'agent_name'
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
