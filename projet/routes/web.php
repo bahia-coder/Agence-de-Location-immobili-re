@@ -19,11 +19,14 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [Controller::class, 'index'])->name('home');
 Auth::routes();
-
+Route::get('/', [App\Http\Controllers\Props\PropertiesController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 
+Route::group(['prefix' => 'props'], function () {
+    Route::get('prop-details/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'single'])->name('single.prop');
 
+    });
 
 Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
 
