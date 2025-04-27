@@ -31,10 +31,8 @@
             </div>
         @endforeach
     </div>
-
-
-    {{-- Affichage des biens --}}
-    <div class="site-section site-section-sm bg-light">
+    {{-- properties --}}
+    <div class="site-section site-section-sm bg-light ">
         <div class="container">
             <div class="row mb-5">
                 @foreach ($props as $prop)
@@ -45,36 +43,42 @@
                                     <span class="offer-type bg-danger">Sale</span>
                                     <span class="offer-type bg-success">{{ $prop->type }}</span>
                                 </div>
-                                <img src="{{ asset('assets/images/' . $prop->image) }}" alt="Image" class="img-fluid">
+                                <img src="{{ asset('assets/images/' . $prop->image . '') }}" alt="Image"
+                                    class="img-fluid">
                             </a>
                             <div class="p-4 property-body">
                                 <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                                <h2 class="property-title">
-                                    <a href="{{ route('single.prop', $prop->id) }}">{{ $prop->title }}</a>
+                                <h2 class="property-title"><a
+                                        href="{{ route('single.prop', $prop->id) }}">{{ $prop->title }}</a>
                                 </h2>
-                                <span class="property-location d-block mb-3">
-                                    <span class="property-icon icon-room"></span>
+                                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>
                                     {{ $prop->location }}
                                 </span>
-                                <strong class="property-price text-primary mb-3 d-block text-success">${{ $prop->price }}</strong>
+                                <strong
+                                    class="property-price text-primary mb-3 d-block text-success">${{ $prop->price }}</strong>
                                 <ul class="property-specs-wrap mb-3 mb-lg-0">
                                     <li>
                                         <span class="property-specs">Beds</span>
                                         <span class="property-specs-number">{{ $prop->beds }} <sup>+</sup></span>
+
                                     </li>
                                     <li>
-                                        <span class="property-specs">Baths</span>
-                                        <span class="property-specs-number">{{ $prop->baths }}</span>
+                                        <span class="property-specs">{{ $prop->baths }}</span>
+                                        <span class="property-specs-number">2</span>
+
                                     </li>
                                     <li>
                                         <span class="property-specs">SQ FT</span>
                                         <span class="property-specs-number">{{ $prop->sq_ft }}</span>
+
                                     </li>
                                 </ul>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
+
             </div>
         </div>
     </div>
