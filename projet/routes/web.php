@@ -29,6 +29,9 @@ Route::group(['prefix' => 'props'], function () {
     // Inserting requests
 
     Route::post('prop-details/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'insertRequests'])->name('insert.request');
+//  Saving props
+    Route::get('save-props/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'saveProps'])->name('show.save.form');
+    Route::post('save-props/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'saveProps'])->name('save.prop');
 
 });
 
