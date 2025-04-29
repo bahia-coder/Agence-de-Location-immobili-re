@@ -49,7 +49,7 @@
                                     </select>
                                 </div>
                             </div>  --}}
-                             {{-- <div class="col-md-3">
+                              <div class="col-md-3">
                                 <label for="offer_types">Offer Type</label>
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
@@ -59,7 +59,7 @@
                                         <option value="Lease">Lease</option>
                                     </select>
                                 </div>
-                            </div>  --}}
+                            </div>  
                              <div class="col-md-3">
                                 <label for="city">Select City</label>
                                 <div class="select-wrap">
