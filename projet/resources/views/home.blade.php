@@ -31,6 +31,80 @@
             </div>
         @endforeach
     </div>
+     <div class="site-section site-section-sm pb-0">
+            <div class="container">
+                <div class="row">
+                    <form action="{{ route('search.prop') }}" method="POST" class="form-search col-md-12"
+                        style="margin-top: -100px;">
+                        @csrf
+                        <div class="row align-items-end">
+                             {{-- <div class="col-md-3">
+                                <label for="list-types">Listing Types</label>
+                                <div class="select-wrap">
+                                    <span class="icon icon-arrow_drop_down"></span>
+                                    <select name="home_type" id="list-types" class="form-control d-block rounded-0">
+                                        <option value="Condo">oberge</option>
+                                        <option value="Commercial Building">Commercial Building</option>
+                                        <option value="Land Property">Land Property</option>
+                                    </select>
+                                </div>
+                            </div>  --}}
+                             {{-- <div class="col-md-3">
+                                <label for="offer_types">Offer Type</label>
+                                <div class="select-wrap">
+                                    <span class="icon icon-arrow_drop_down"></span>
+                                    <select name="type" id="offer-types" class="form-control d-block rounded-0">
+                                        <option value="Buy">Buy</option>
+                                        <option value="Rent">Rent</option>
+                                        <option value="Lease">Lease</option>
+                                    </select>
+                                </div>
+                            </div>  --}}
+                             <div class="col-md-3">
+                                <label for="city">Select City</label>
+                                <div class="select-wrap">
+                                    <span class="icon icon-arrow_drop_down"></span>
+                                    <select name="city" id="select-city" class="form-control d-block rounded-0">
+                                        <option value="New York">New York</option>
+                                        <option value="Brooklyn">Brooklyn</option>
+                                        <option value="London">London</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Philippines">Philippines</option>
+                                    </select>
+                                </div>
+                            </div> 
+                            <div class="col-md-3">
+                                <input name="submit" type="submit" class="btn btn-success text-white btn-block rounded-0"
+                                    value="Search">
+                            </div>
+                        </div>
+                    </form>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        {{-- <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
+                            <div class="mr-auto">
+                                <a href="{{ route('home') }}" class="icon-view view-module active"><span
+                                        class="icon-view_module"></span></a>
+        
+                            </div>
+                            {{-- <div class="ml-auto d-flex align-items-center">
+                                <div>
+                                    <a href="{{ route('home') }}" class="view-list px-3 border-right active">All</a>
+                                    <a href="{{ route('rent.prop') }}" class="view-list px-3 border-right">Rent</a>
+                                    <a href="{{ route('buy.prop') }}" class="view-list px-3">Buy</a>
+                                    <a href="{{ route('price.asc.prop') }}" class="view-list px-3">Price Ascending</a>
+                                    <a href="{{ route('price.desc.prop') }}" class="view-list px-3">Price Descending</a>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+        
+            </div>
+        </div>
     {{-- properties --}}
     <div class="site-section site-section-sm bg-light ">
         <div class="container">
