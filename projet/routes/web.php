@@ -23,10 +23,28 @@ Route::get('/', [App\Http\Controllers\Props\PropertiesController::class, 'index'
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 
-Route::group(['prefix' => 'props'], function () {
+ Route::group(['prefix' => 'props'], function () {
     Route::get('prop-details/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'single'])->name('single.prop');
 
-    });
+
+     // Displaying props by rent and buy
+     Route::get('type/Buy', [App\Http\Controllers\Props\PropertiesController::class, 'propsBuy'])->name('buy.prop');
+     Route::get('type/Rent', [App\Http\Controllers\Props\PropertiesController::class, 'propsRent'])->name('rent.prop');
+ 
+ 
+     // Displaying props by home type
+     Route::get('home_type/{home_type}', [App\Http\Controllers\Props\PropertiesController::class, 'displayByHomeType'])->name('display.prop.hometype');
+ 
+     //  Displaying props by price
+ 
+     Route::get('price-asc', [App\Http\Controllers\Props\PropertiesController::class, 'priceAsc'])->name('price.asc.prop');
+     Route::get('price-desc', [App\Http\Controllers\Props\PropertiesController::class, 'priceDesc'])->name('price.desc.prop');
+ 
+     // searching for props
+     Route::any('search', [App\Http\Controllers\Props\PropertiesController::class, 'searchProps'])->name('search.prop');
+    }); 
+
+
 
 Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
 

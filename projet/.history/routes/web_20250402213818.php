@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PropertyFilterController;
+use App\Http\Controllers\Props\PropertiesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +19,18 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [Controller::class, 'index'])->name('home');
+// Route pour le filtrage des propriétés
+Route::get('/', [PropertiesController::class, 'index'])->name('home');
 Auth::routes();
+
+
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+
+//filtrage 
+
+
 
 
 
@@ -34,6 +43,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('createUser', [App\Http\Controllers\Admins\AdminsController::class, 'storeUsers'])->name('users.store');
     Route::delete('/admin/users/{user}', [App\Http\Controllers\Admins\AdminsController::class, 'destroy'])->name('users.destroy');
 
+    
+    // Route pour le filtrage des propriétés
 
 
      //  hometypes

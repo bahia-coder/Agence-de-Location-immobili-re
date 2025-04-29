@@ -49,7 +49,9 @@ class AdminsController extends Controller
 
         return view('admins.creatUser');
     }
+     
 
+    
 
 
     public function storeUsers(AdminStoreRequest $request)
@@ -87,6 +89,7 @@ class AdminsController extends Controller
     {
         $homeTypes = HomeType::all();;
     return view('admins.createprops', compact('homeTypes'));
+
     }
 
     public function storeProps(Request $request)
