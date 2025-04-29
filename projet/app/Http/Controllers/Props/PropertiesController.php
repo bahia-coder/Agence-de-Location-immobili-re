@@ -31,21 +31,21 @@ class PropertiesController extends Controller
  public function searchProps(Request $request)
  {
      $request->validate([
-        'home_type' => 'required',
+       // 'home_type' => 'required',
         //'type' => 'required',
-       //  'city' => 'required',
+        'city' => 'required',
      ]);
 
-     $home_type = $request->input('home_type');
+     //$home_type = $request->input('home_type');
     // $type = $request->input('type');
-     //$city = $request->input('city');
+     $city = $request->input('city');
 
      /* $searches = Property::where('home_type', 'like', "%$home_type%")
          ->where('type', 'like', "%$type%")
          ->where('city', 'like', "%$city%")
          ->get(); */
 
-         $searches = Property::where('home_type', 'like', "%$home_type%")
+        $searches = Property::where('city', 'like', "%$city%")
         // ->where('home_type', 'like', "%$home_type%")
          ->get();
 

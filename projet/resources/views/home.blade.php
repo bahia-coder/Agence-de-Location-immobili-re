@@ -50,7 +50,7 @@
                 style="margin-top: -100px;">
                 @csrf
                 <div class="row align-items-end">
-                     <div class="col-md-3">
+                    {{--  <div class="col-md-3">
                         <label for="list-types">Listing Types</label>
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
@@ -59,7 +59,7 @@
                                 <option value="Commercial Building">Commercial Building</option>
                                 <option value="Land Property">Land Property</option>
                             </select>
-                        </div>
+                        </div> --}}
                     </div> 
                      {{-- <div class="col-md-3">
                         <label for="offer_types">Offer Type</label>
@@ -71,8 +71,8 @@
                                 <option value="Lease">Lease</option>
                             </select>
                         </div>
-                    </div>  --}}
-                    {{-- <div class="col-md-3">
+                    </div>   --}}
+                     <div class="col-md-3">
                         <label for="city">Select City</label>
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
@@ -84,7 +84,7 @@
                                 <option value="Philippines">Philippines</option>
                             </select>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="col-md-3">
                         <input name="submit" type="submit" class="btn btn-success text-white btn-block rounded-0"
                             value="Search">
