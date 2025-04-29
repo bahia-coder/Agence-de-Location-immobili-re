@@ -143,16 +143,16 @@ public function saveProps(Request $request, $id)
      {
          $request->validate([
           //   'home_type' => 'required',
-          //   'type' => 'required',
+             'type' => 'required',
              'city' => 'required',
          ]);
  
         // $home_type = $request->input('home_type');
-       //  $type = $request->input('type');
+        $type = $request->input('type');
          $city = $request->input('city');
  
          $searches = Property::where( 'city', 'like', "%$city%")
-             //->where('type', 'like', "%$type%")
+             ->where('type', 'like', "%$type%")
             // ->where('home_type', 'like', "%$home_type%")
              ->get();
     
