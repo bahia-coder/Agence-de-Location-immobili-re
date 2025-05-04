@@ -9,6 +9,8 @@ use App\Models\Prop\PropImage;
 use App\Models\Prop\SavedProp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class PropertiesController extends Controller
 {
@@ -139,25 +141,31 @@ public function saveProps(Request $request, $id)
 
      // searching for props
 
-     public function searchProps(Request $request)
-     {
-         $request->validate([
-          //   'home_type' => 'required',
-             'type' => 'required',
-             'city' => 'required',
-         ]);
- 
-        // $home_type = $request->input('home_type');
-        $type = $request->input('type');
-         $city = $request->input('city');
- 
-         $searches = Property::where( 'city', 'like', "%$city%")
-             ->where('type', 'like', "%$type%")
-            // ->where('home_type', 'like', "%$home_type%")
-             ->get();
-    
-         return view('props.searches', compact('searches'));
-     }
+public function searchProps(Request $request)
+{
+    // Validation des champs obligatoires
+    $request->validate([
+        'home_type' => 'required',
+        'type' => 'required',
+        'city' => 'required',
+    ]);
+
+    // Récupération des valeurs du formulaire
+    $homeType = $request->input('home_type');
+    $type = $request->input('type');
+    $city = $request->input('city');
+
+    // Requête sans jointure (tout est dans la table properties)
+    $searches = DB::table('properties')
+        ->where('home_type', 'like', "%$homeType%")
+        ->where('type', 'like', "%$type%")
+        ->where('city', 'like', "%$city%")
+        ->get();
+
+    // Retourner la vue avec les résultats
+    return view('props.searches', compact('searches'));
+}
+
     
 
     
