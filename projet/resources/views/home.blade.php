@@ -38,22 +38,24 @@
                         style="margin-top: -100px;">
                         @csrf
                         <div class="row align-items-end">
-                             {{-- <div class="col-md-3">
+                              <div class="col-md-3">
                                 <label for="list-types">Listing Types</label>
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="home_type" id="list-types" class="form-control d-block rounded-0">
-                                        <option value="Condo">oberge</option>
-                                        <option value="Commercial Building">Commercial Building</option>
-                                        <option value="Land Property">Land Property</option>
+{{--                                         <option value="">All</option>  --}}
+                                        <option value="oberge">oberge</option>
+                                        <option value="villa">villa</option>
+                                        <option value="maison">maison </option>
                                     </select>
                                 </div>
-                            </div>  --}}
+                            </div>  
                               <div class="col-md-3">
                                 <label for="offer_types">Offer Type</label>
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="type" id="offer-types" class="form-control d-block rounded-0">
+                                   {{--  <option value="">All</option>  --}}
                                         <option value="Buy">Buy</option>
                                         <option value="Rent">Rent</option>
                                         <option value="Lease">Lease</option>
@@ -65,6 +67,7 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="city" id="select-city" class="form-control d-block rounded-0">
+                                        {{-- <option value="">All</option>  --}}
                                         <option value="New York">New York</option>
                                         <option value="Brooklyn">Brooklyn</option>
                                         <option value="London">London</option>
@@ -82,15 +85,15 @@
         
                 </div>
         
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
-                        {{-- <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
+                         <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
                             <div class="mr-auto">
                                 <a href="{{ route('home') }}" class="icon-view view-module active"><span
                                         class="icon-view_module"></span></a>
         
                             </div>
-                            {{-- <div class="ml-auto d-flex align-items-center">
+                             <div class="ml-auto d-flex align-items-center">
                                 <div>
                                     <a href="{{ route('home') }}" class="view-list px-3 border-right active">All</a>
                                     <a href="{{ route('rent.prop') }}" class="view-list px-3 border-right">Rent</a>
@@ -99,9 +102,9 @@
                                     <a href="{{ route('price.desc.prop') }}" class="view-list px-3">Price Descending</a>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div> 
                     </div>
-                </div>
+                </div> --}}
         
             </div>
         </div>
