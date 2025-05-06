@@ -141,31 +141,41 @@ public function saveProps(Request $request, $id)
 
      // searching for props
 
-public function searchProps(Request $request)
-{
-    // Validation des champs obligatoires
-    $request->validate([
-        'home_type' => 'required',
-        'type' => 'required',
-        'city' => 'required',
-    ]);
-
-    // Récupération des valeurs du formulaire
-    $homeType = $request->input('home_type');
-    $type = $request->input('type');
-    $city = $request->input('city');
-
-    // Requête sans jointure (tout est dans la table properties)
-    $searches = DB::table('properties')
-        ->where('home_type', 'like', "%$homeType%")
-        ->where('type', 'like', "%$type%")
-        ->where('city', 'like', "%$city%")
-        ->get();
-
-    // Retourner la vue avec les résultats
-    return view('props.searches', compact('searches'));
-}
-
+     public function searchProps(Request $request)
+     {
+         // Plus de validation "required", car les champs peuvent être vides (donc "All")
+         $request->validate([
+             'home_type' => 'nullable|string',
+             'type' => 'nullable|string',
+             'city' => 'nullable|string',
+         ]);
+     
+         // Récupération des valeurs
+         $homeType = $request->input('home_type');
+         $type = $request->input('type');
+         $city = $request->input('city');
+     
+         // Construction dynamique de la requête
+         $query = DB::table('properties');
+     
+         if (!empty($homeType)) {
+             $query->where('home_type', 'like', "%$homeType%");
+         }
+     
+         if (!empty($type)) {
+             $query->where('type', 'like', "%$type%");
+         }
+     
+         if (!empty($city)) {
+             $query->where('city', 'like', "%$city%");
+         }
+     
+         $searches = $query->get();
+     
+         // Retourner la vue avec les résultats
+         return view('props.searches', compact('searches'));
+     }
+     
     
 
     
