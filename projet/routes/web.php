@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +18,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [Controller::class, 'index'])->name('home');
 Auth::routes();
 Route::get('/', [App\Http\Controllers\Props\PropertiesController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::get('/monavis', [ReviewController::class, 'monAvis'])->middleware('auth')->name('avis.monavis');
 
 Route::group(['prefix' => 'props'], function () {
     Route::get('prop-details/{id}', [App\Http\Controllers\Props\PropertiesController::class, 'single'])->name('single.prop');
@@ -49,9 +50,11 @@ Route::group(['prefix' => 'props'], function () {
 });
 
 
-
+Route::post('/avis', [ReviewController::class, 'store'])->middleware('auth')->name('avis.store');
 Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
-
+Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edit');
+Route::post('/avis/{id}/update', [ReviewController::class, 'update'])->name('avis.update');
+Route::get('/monavis', [ReviewController::class, 'monAvis'])->name('monavis');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
     Route::get('allUsers', [App\Http\Controllers\Admins\AdminsController::class, 'allUsers'])->name('users.display');

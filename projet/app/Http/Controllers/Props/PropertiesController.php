@@ -10,16 +10,19 @@ use App\Models\Prop\SavedProp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Review;
 
 class PropertiesController extends Controller
 {
     public function index()
-    {
-        $props = Property::select()->take(9)->orderBy('created_at', 'desc')->get();
-        // dd($props);
-        return view('home', compact('props'));
-    }
+{
+    $props = Property::select()->take(9)->orderBy('created_at', 'desc')->get();
+    $reviews = Review::with('user')->latest()->get();
+
+    // Retourne la vue avec les propriétés et les avis
+    return view('home', compact('props', 'reviews'));
+}
+
 
     public function single($id)
     {
