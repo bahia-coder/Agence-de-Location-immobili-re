@@ -31,5 +31,27 @@ public function monAvis()
 
     return view('reviews.monavis', compact('review'));
 }
+// app/Http/Controllers/ReviewController.php
+
+/*public function edit($id)
+{
+    $review = Review::findOrFail($id);
+    return view('reviews.edit', compact('review'));
+}
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'comment' => 'required|string',
+        'rating' => 'nullable|integer|min:1|max:5',
+    ]);
+
+    $review = Review::findOrFail($id);
+    $review->update([
+        'comment' => $request->comment,
+        'rating' => $request->rating,
+    ]);
+
+    return redirect()->route('monavis')->with('success', 'Votre avis a été mis à jour.');
+}*/
 
 }
