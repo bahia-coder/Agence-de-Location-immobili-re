@@ -43,7 +43,7 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="home_type" id="list-types" class="form-control d-block rounded-0">
-{{--                                         <option value="">All</option>  --}}
+                                       <option value="">All</option> 
                                         <option value="oberge">oberge</option>
                                         <option value="villa">villa</option>
                                         <option value="maison">maison </option>
@@ -55,7 +55,7 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="type" id="offer-types" class="form-control d-block rounded-0">
-                                   {{--  <option value="">All</option>  --}}
+                                    <option value="">All</option>  
                                         <option value="Buy">Buy</option>
                                         <option value="Rent">Rent</option>
                                         <option value="Lease">Lease</option>
@@ -67,7 +67,7 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="city" id="select-city" class="form-control d-block rounded-0">
-                                        {{-- <option value="">All</option>  --}}
+                                         <option value="">All</option>  
                                         <option value="New York">New York</option>
                                         <option value="Brooklyn">Brooklyn</option>
                                         <option value="London">London</option>
@@ -85,7 +85,7 @@
         
                 </div>
         
-                {{-- <div class="row">
+                 <div class="row">
                     <div class="col-md-12">
                          <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
                             <div class="mr-auto">
@@ -104,7 +104,7 @@
                             </div>
                         </div> 
                     </div>
-                </div> --}}
+                </div> 
         
             </div>
         </div>
