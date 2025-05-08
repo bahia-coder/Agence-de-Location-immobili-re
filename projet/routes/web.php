@@ -66,6 +66,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('createUser', [App\Http\Controllers\Admins\AdminsController::class, 'storeUsers'])->name('users.store');
     Route::delete('/admin/users/{user}', [App\Http\Controllers\Admins\AdminsController::class, 'destroy'])->name('users.destroy');
 
+    // display all requests
+
+    Route::get('allRequests', [App\Http\Controllers\Admins\AdminsController::class, 'allRequests'])->name('admins.allRequests');
 
 
      //  hometypes

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('all_requests', function (Blueprint $table) {
-            $table->string('agent_name')->nullable();  // Ajoute la colonne agent_name
+       #     $table->string('agent_name')->nullable();  // Ajoute la colonne agent_name
 
         });
     }
