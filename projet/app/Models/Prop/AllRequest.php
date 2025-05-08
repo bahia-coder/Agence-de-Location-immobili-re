@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class AllRequest extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    public $timestamps = true;
+
+    protected $fillable = [
+        'prop_id',
+        'agent_name',
+        'name',
+        'email',
+        'phone',
+    ];
 }
+

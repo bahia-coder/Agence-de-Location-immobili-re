@@ -85,27 +85,6 @@
         
                 </div>
         
-                 <div class="row">
-                    <div class="col-md-12">
-                         <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
-                            <div class="mr-auto">
-                                <a href="{{ route('home') }}" class="icon-view view-module active"><span
-                                        class="icon-view_module"></span></a>
-        
-                            </div>
-                             <div class="ml-auto d-flex align-items-center">
-                                <div>
-                                    <a href="{{ route('home') }}" class="view-list px-3 border-right active">All</a>
-                                    <a href="{{ route('rent.prop') }}" class="view-list px-3 border-right">Rent</a>
-                                    <a href="{{ route('buy.prop') }}" class="view-list px-3">Buy</a>
-                                    <a href="{{ route('price.asc.prop') }}" class="view-list px-3">Price Ascending</a>
-                                    <a href="{{ route('price.desc.prop') }}" class="view-list px-3">Price Descending</a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div> 
-        
             </div>
         </div>
     {{-- properties --}}

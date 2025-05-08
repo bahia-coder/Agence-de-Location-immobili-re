@@ -107,14 +107,14 @@
                             @if ($validateFormCount > 0)
                                 <p class="alert alert-success"> You already sent a request to this property</p>
                             @else
-                                <form method="POST" action="{{ route('insert.request', $singleProp->id) }}"
-                                    class="form-contact-agent">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="name">prop_id</label>
-                                        <input type="text" value="{{ $singleProp->id }}" id="name" name="prop_id"
-                                            type="hidden" class="form-control">
-                                    </div>
+                            <form method="POST" action="{{ route('insert.request', $singleProp->id) }}" class="form-contact-agent">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" value="{{ $singleProp->id }}" id="prop_id" name="prop_id" type="hidden" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="agent_name" name="agent_name" type="hidden" value="{{ $singleProp->agent_name }}" class="form-control">
+                                </div>
                                     <div class="form-group">
                                         <label for="name">Agent Name</label>
                                         <input type="text" id="name" name="agent_name" type="hidden"

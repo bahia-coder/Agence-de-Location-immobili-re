@@ -12,6 +12,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use App\Models\Prop\AllRequest;
+
 
 class AdminsController extends Controller
 {
@@ -138,7 +140,12 @@ class AdminsController extends Controller
             return redirect()->route('admins.allProps')->with('success', 'Props added successfully');
         }
     }
-
+    //affiche request des clients 
+    public function allRequests()
+    {
+        $requests = AllRequest::all();
+        return view('admins.requests', compact('requests'));
+    }
 
     //  create gallery
     public function createGallery()
@@ -148,7 +155,35 @@ class AdminsController extends Controller
         return view('admins.creategallery', compact('allProps'));
     }
 
+    /* public function storeRequest(Request $request, $propId)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'required|string|max:15',
+        ]);
+    
+        // Création d'une nouvelle demande
+        $newRequest = AllRequest::create([
+            'prop_id' => $propId,
+            'agent_name' => $request->input('agent_name'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+        ]);
+    
+        // Redirection avec un message de succès
+        if ($newRequest) {
+            return redirect()->route('single.prop', $propId)->with('success', 'Request sent successfully!');
+        } else {
+            return redirect()->route('single.prop', $propId)->with('error', 'There was an issue submitting your request.');
+        }
+    }
+    
+ */
 
+
+ 
 
     public function storeGallery(Request $request)
     {
@@ -205,4 +240,5 @@ class AdminsController extends Controller
             return redirect()->route('admins.allProps')->with('error_delete', 'Error deleting property');
         }
     }
+    
 }

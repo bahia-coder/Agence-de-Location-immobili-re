@@ -53,6 +53,10 @@
                                 <a class="nav-link" href="{{route('admins.allProps')}}"
                                     style="margin-left: 20px;">Properties</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admins.allRequests') }}"
+                                    style="margin-left: 20px;">Requests</a>
+                            </li>
                         </ul>
                     @else
                         <li class="nav-item">

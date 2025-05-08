@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Admins\AdminsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,11 @@ Route::group(['prefix' => 'props'], function () {
 
     // Displaying props by home type
     Route::get('home_type/{home_type}', [App\Http\Controllers\Props\PropertiesController::class, 'displayByHomeType'])->name('display.prop.hometype');
+    
+
+
+
+
 
     // Displaying props by price
     Route::get('price-asc', [App\Http\Controllers\Props\PropertiesController::class, 'priceAsc'])->name('price.asc.prop');
@@ -99,9 +105,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('deleteProps/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteProps'])->name('admins.propsDelete');
 
+
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware('auth.check');
 
 
 
+ // display all requests
+
+Route::get('allRequests', [App\Http\Controllers\Admins\AdminsController::class, 'allRequests'])->name('admins.allRequests');
+
+
+
+
+
+
+
+
+
+
+
+//route pour admin request
+Route::post('/property/{propId}/request', [AdminsController::class, 'storeRequest'])->name('insert.request');

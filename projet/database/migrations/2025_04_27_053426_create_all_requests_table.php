@@ -4,20 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateAllRequestsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-     public function up()
+    public function up()
     {
         Schema::create('all_requests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('prop_id');
-            $table->string('agent_name')->nullable(); // Ajoute la colonne 'agent_name'
-            $table->unsignedBigInteger('user_id');
+            $table->string('prop_id');
+            $table->string('agent_name');
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -26,4 +21,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('all_requests');
     }
-};
+}
