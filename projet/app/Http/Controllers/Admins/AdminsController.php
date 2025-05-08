@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use App\Models\Prop\AllRequest;
 
 class AdminsController extends Controller
 {
@@ -174,7 +175,11 @@ class AdminsController extends Controller
         }
     }
 
-
+    public function allRequests()
+    {
+        $requests = AllRequest::all();
+        return view('admins.requests', compact('requests'));
+    }
     public function deleteProps($id)
     {
 

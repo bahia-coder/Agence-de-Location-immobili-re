@@ -85,7 +85,7 @@
         
                 </div>
         
-                 <div class="row">
+                 {{-- <div class="row">
                     <div class="col-md-12">
                          <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
                             <div class="mr-auto">
@@ -104,7 +104,7 @@
                             </div>
                         </div> 
                     </div>
-                </div> 
+                </div>  --}}
         
             </div>
         </div>
