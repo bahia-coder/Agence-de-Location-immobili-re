@@ -48,7 +48,14 @@ Route::group(['prefix' => 'props'], function () {
     // Searching for props
     Route::any('search', [App\Http\Controllers\Props\PropertiesController::class, 'searchProps'])->name('search.prop');
 });
-
+Route::group(
+    ['prefix' => 'users'],
+    function () {
+        // users pages
+        Route::get('all-requests', [App\Http\Controllers\Users\UsersController::class, 'allRequests'])->name('all.requests');
+        Route::get('all-saved-props', [App\Http\Controllers\Users\UsersController::class, 'allSavedProps'])->name('all.saved.props');
+    }
+);
 
 Route::post('/avis', [ReviewController::class, 'store'])->middleware('auth')->name('avis.store');
 Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
