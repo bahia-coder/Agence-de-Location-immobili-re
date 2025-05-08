@@ -61,8 +61,8 @@ Route::post('/admin/check-login', [App\Http\Controllers\Admins\AdminsController:
 Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edit');
 Route::post('/avis/{id}/update', [ReviewController::class, 'update'])->name('avis.update');
 Route::get('/monavis', [ReviewController::class, 'monAvis'])->name('monavis');
-//Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edit');
-//Route::put('/avis/{id}', [ReviewController::class, 'update'])->name('avis.update');
+Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edit');
+Route::put('/avis/{id}', [ReviewController::class, 'update'])->name('avis.update');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
