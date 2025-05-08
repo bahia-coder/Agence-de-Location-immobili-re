@@ -69,6 +69,7 @@
             <div class="review-display">
                 <p><strong>Note :</strong> {{ $review->rating }}/5</p>
                 <p><strong>Commentaire :</strong> {{ $review->comment }}</p>
+              {{-- <a href="{{ route('avis.edit', $review->id) }}" class="btn-submit">Modifier mon avis</a> --}}
 
             </div>
         @else
