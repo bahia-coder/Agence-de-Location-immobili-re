@@ -208,7 +208,36 @@
     
 
     {{-- why choose us section ends --}}
-    
+    {{-- Avis Clients --}}
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+                <h2 class="site-section-title">Avis des Clients</h2>
+                <p>Ce que disent nos clients à propos de notre service de location.</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach ($reviews as $review)
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="team-member text-center p-4 border rounded bg-white">
+                        {{-- Image utilisateur (avatar vide par défaut) --}}
+                        <img src="{{ asset('assets/images/Profile_avatar_placeholder_large.png') }}" 
+                             alt="User Avatar"
+                             class="img-fluid rounded-circle mb-3" style="width: 100px; height: 100px;">
+                        
+                        <div class="text">
+                            <h4 class="text-black">{{ $review->user->name ?? 'Utilisateur Anonyme' }}</h4>
+                            <p class="text-muted">Note : {{ $review->rating }}/5</p>
+                            <p>"{{ $review->comment }}"</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
 
     {{-- our agents ends --}}
 @endsection
