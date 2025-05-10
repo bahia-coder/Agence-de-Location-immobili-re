@@ -60,6 +60,19 @@ class PropertiesController extends Controller
     }
 
 
+
+
+public function priceAsc()
+{
+    $props = Property::orderBy('price', 'asc')->get();
+    $reviews = Review::with('user')->latest()->take(6)->get(); // <-- adapter selon ton besoin
+    return view('home', compact('props', 'reviews'));
+}
+
+
+
+
+
     public function insertRequests(Request $request)
     {
 

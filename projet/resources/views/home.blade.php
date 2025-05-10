@@ -108,6 +108,9 @@
         
             </div>
         </div>
+
+        <a href="{{ route('price.asc.prop') }}" class="btn btn-outline-success">Prix croissant</a>
+
     {{-- properties --}}
     <div class="site-section site-section-sm bg-light ">
         <div class="container">

@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Props\PropertiesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +66,9 @@ Route::get('/monavis', [ReviewController::class, 'monAvis'])->name('monavis');
 Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edit');
 Route::put('/avis/{id}', [ReviewController::class, 'update'])->name('avis.update');
 
+
+
+Route::get('props/price-asc', [PropertiesController::class, 'priceAsc'])->name('price.asc.prop');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
