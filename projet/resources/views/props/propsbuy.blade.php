@@ -30,7 +30,7 @@
                         <div class="property-entry h-100">
                             <a href="{{ route('single.prop', $propsbuy->id) }}" class="property-thumbnail">
                                 <div class="offer-type-wrap">
-                           
+
                                     <span class="offer-type bg-success">{{ $propsbuy->type }}</span>
                                 </div>
                                 <img src="{{ asset('assets/images/' . $propsbuy->image . '') }}" alt="Image"
