@@ -22,4 +22,8 @@ class Controller extends BaseController
         return view('pages.about');
     }
 
+     public function contact(){
+        return view('pages.contact');
+    }
+
 }

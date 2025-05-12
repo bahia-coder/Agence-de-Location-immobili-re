@@ -120,5 +120,8 @@ Route::get('/admin/login', [App\Http\Controllers\Admins\AdminsController::class,
 //  about
 Route::get('/about', [Controller::class, 'about'])->name('about');
 
+//  Displaying contact and about pages
+Route::get('/contact', [Controller::class, 'contact'])->name('contact');
+
 
 
