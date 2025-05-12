@@ -74,6 +74,7 @@
 
                             <li><a href="{{ route('buy.prop') }}">Buy</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
 
 
 
