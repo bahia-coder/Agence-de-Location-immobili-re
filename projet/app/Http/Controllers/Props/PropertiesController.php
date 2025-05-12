@@ -60,6 +60,19 @@ class PropertiesController extends Controller
     }
 
 
+
+
+public function priceAsc()
+{
+    $props = Property::orderBy('price', 'asc')->get();
+    $reviews = Review::with('user')->latest()->take(6)->get(); // <-- adapter selon ton besoin
+    return view('home', compact('props', 'reviews'));
+}
+
+
+
+
+
     public function insertRequests(Request $request)
     {
 
@@ -139,8 +152,18 @@ public function saveProps(Request $request, $id)
         // Handle other cases or show an error message
         return redirect()->back()->with('error', 'Invalid request method');
 
-        
+
     }
+
+
+    public function propsBuy()
+    {
+        $type = "Buy";
+        $propsbuys = Property::where('type', $type)->get();
+
+        return view('props.propsbuy', compact('propsbuys'));
+    }
+
 
      // searching for props
 
@@ -152,45 +175,46 @@ public function saveProps(Request $request, $id)
              'type' => 'nullable|string',
              'city' => 'nullable|string',
          ]);
-     
+
          // Récupération des valeurs
          $homeType = $request->input('home_type');
          $type = $request->input('type');
          $city = $request->input('city');
-     
+
          // Construction dynamique de la requête
          $query = DB::table('properties');
-     
+
          if (!empty($homeType)) {
              $query->where('home_type', 'like', "%$homeType%");
          }
-     
+
          if (!empty($type)) {
              $query->where('type', 'like', "%$type%");
          }
-     
+
          if (!empty($city)) {
              $query->where('city', 'like', "%$city%");
          }
-     
+
          $searches = $query->get();
-     
+
          // Retourner la vue avec les résultats
          return view('props.searches', compact('searches'));
+
      }
-     
-    
-
-    
-
-    
-    
-
-    
 
 
-    
 
-   
+
+
+
+
+
+
+
+
+
+
+
 }
 
