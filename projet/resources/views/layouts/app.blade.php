@@ -69,7 +69,7 @@
                             <li class="active">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
-                           
+
 
                             @guest
                                 @if (Route::has('login'))

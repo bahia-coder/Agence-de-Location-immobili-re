@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Props\PropertiesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,6 +67,9 @@ Route::get('/avis/{id}/edit', [ReviewController::class, 'edit'])->name('avis.edi
 Route::put('/avis/{id}', [ReviewController::class, 'update'])->name('avis.update');
 
 
+
+Route::get('props/price-asc', [PropertiesController::class, 'priceAsc'])->name('price.asc.prop');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
     Route::get('allUsers', [App\Http\Controllers\Admins\AdminsController::class, 'allUsers'])->name('users.display');
@@ -84,11 +88,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
      // create home type
      Route::get('createHomeTypes', [App\Http\Controllers\Admins\HometypesController::class, 'createHomeTypes'])->name('admins.create.hometypes');
      Route::post('createHomeTypes', [App\Http\Controllers\Admins\HometypesController::class, 'storeHomeTypes'])->name('admins.store.hometypes');
- 
+
      //  edit and update home type
      Route::get('editHomeTypes/{id}', [App\Http\Controllers\Admins\HometypesController::class, 'editHomeTypes'])->name('admins.edit.hometypes');
      Route::post('updateHomeTypes/{id}', [App\Http\Controllers\Admins\HometypesController::class, 'updateHomeTypes'])->name('admins.update.hometypes');
- 
+
      //  delete home type
      Route::get('deleteHomeTypes/{id}', [App\Http\Controllers\Admins\HometypesController::class, 'deleteHomeTypes'])->name('admins.delete.hometypes');
     //  props
