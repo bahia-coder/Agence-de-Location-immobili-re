@@ -71,8 +71,11 @@
                             </li>
 
 
+
                             <li><a href="{{ route('buy.prop') }}">Buy</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
+
+
 
 
                             @guest
