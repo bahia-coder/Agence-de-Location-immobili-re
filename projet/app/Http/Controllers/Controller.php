@@ -16,5 +16,10 @@ class Controller extends BaseController
         // dd($props);
         return view('home');
     }
-    
+
+    public function about()
+    {
+        return view('pages.about');
+    }
+
 }
