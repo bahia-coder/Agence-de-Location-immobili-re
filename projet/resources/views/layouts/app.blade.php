@@ -69,7 +69,8 @@
                             <li class="active">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
-
+                            <li><a href="{{ route('buy.prop') }}">Buy</a></li>
+                            <li><a href="{{ route('about') }}">About</a></li>
 
                             @guest
                                 @if (Route::has('login'))

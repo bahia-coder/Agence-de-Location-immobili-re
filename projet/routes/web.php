@@ -117,5 +117,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
 Route::get('/admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware('auth.check');
 
+//  about
+Route::get('/about', [Controller::class, 'about'])->name('about');
+
 
 
