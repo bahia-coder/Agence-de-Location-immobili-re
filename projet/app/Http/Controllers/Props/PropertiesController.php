@@ -70,6 +70,15 @@ public function priceAsc()
 }
 
 
+//price descendant
+public function priceDesc()
+{
+        $propsByPriceDesc = Property::select()->orderBy('price', 'desc')->get();
+
+        return view('props.propspricedesc', compact('propsByPriceDesc'));
+}
+
+
 
 
 

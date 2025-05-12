@@ -43,19 +43,19 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="home_type" id="list-types" class="form-control d-block rounded-0">
-                                       <option value="">All</option> 
+                                       <option value="">All</option>
                                         <option value="oberge">oberge</option>
                                         <option value="villa">villa</option>
                                         <option value="maison">maison </option>
                                     </select>
                                 </div>
-                            </div>  
+                            </div>
                               <div class="col-md-3">
                                 <label for="offer_types">Offer Type</label>
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="type" id="offer-types" class="form-control d-block rounded-0">
-                                    <option value="">All</option>  
+                                    <option value="">All</option>
                                         <option value="Buy">Buy</option>
                                         <option value="Rent">Rent</option>
                                         <option value="Lease">Lease</option>
@@ -67,7 +67,7 @@
                                 <div class="select-wrap">
                                     <span class="icon icon-arrow_drop_down"></span>
                                     <select name="city" id="select-city" class="form-control d-block rounded-0">
-                                         <option value="">All</option>  
+                                         <option value="">All</option>
                                         <option value="New York">New York</option>
                                         <option value="Brooklyn">Brooklyn</option>
                                         <option value="London">London</option>
@@ -75,41 +75,46 @@
                                         <option value="Philippines">Philippines</option>
                                     </select>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-3">
                                 <input name="submit" type="submit" class="btn btn-success text-white btn-block rounded-0"
                                     value="Search">
                             </div>
                         </div>
                     </form>
-        
+
                 </div>
-        
-                 {{-- <div class="row">
-                    <div class="col-md-12">
-                         <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
-                            <div class="mr-auto">
-                                <a href="{{ route('home') }}" class="icon-view view-module active"><span
-                                        class="icon-view_module"></span></a>
-        
-                            </div>
-                             <div class="ml-auto d-flex align-items-center">
-                                <div>
-                                    <a href="{{ route('home') }}" class="view-list px-3 border-right active">All</a>
-                                    <a href="{{ route('rent.prop') }}" class="view-list px-3 border-right">Rent</a>
-                                    <a href="{{ route('buy.prop') }}" class="view-list px-3">Buy</a>
-                                    <a href="{{ route('price.asc.prop') }}" class="view-list px-3">Price Ascending</a>
-                                    <a href="{{ route('price.desc.prop') }}" class="view-list px-3">Price Descending</a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div>  --}}
-        
+
+                <div class="row">
+    <div class="col-md-12">
+        <div class="bg-white py-3 px-4 d-flex flex-wrap justify-content-between align-items-center shadow-sm rounded border">
+            <div class="mb-2 mb-md-0">
+                <a href="{{ route('home') }}" class="btn btn-outline-primary me-2 {{ request()->routeIs('home') ? 'active' : '' }}">
+                    <i class="icon-view_module"></i> Grid View
+                </a>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="{{ route('home') }}"
+                   class="btn btn-outline-secondary {{ request()->routeIs('home') ? 'active' : '' }}">
+                    All
+                </a>
+                <a href="{{ route('price.asc.prop') }}"
+                   class="btn btn-outline-secondary {{ request()->routeIs('price.asc.prop') ? 'active' : '' }}">
+                    Price ↑
+                </a>
+                <a href="{{ route('price.desc.prop') }}"
+                   class="btn btn-outline-secondary {{ request()->routeIs('price.desc.prop') ? 'active' : '' }}">
+                    Price ↓
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
             </div>
         </div>
 
-        <a href="{{ route('price.asc.prop') }}" class="btn btn-outline-success">Prix croissant</a>
+       
 
     {{-- properties --}}
     <div class="site-section site-section-sm bg-light ">
@@ -208,7 +213,7 @@
         </div>
     </div>
 
-    
+
 
     {{-- why choose us section ends --}}
     {{-- Avis Clients --}}
@@ -225,10 +230,10 @@
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="team-member text-center p-4 border rounded bg-white">
                         {{-- Image utilisateur (avatar vide par défaut) --}}
-                        <img src="{{ asset('assets/images/Profile_avatar_placeholder_large.png') }}" 
+                        <img src="{{ asset('assets/images/Profile_avatar_placeholder_large.png') }}"
                              alt="User Avatar"
                              class="img-fluid rounded-circle mb-3" style="width: 100px; height: 100px;">
-                        
+
                         <div class="text">
                             <h4 class="text-black">{{ $review->user->name ?? 'Utilisateur Anonyme' }}</h4>
                             <p class="text-muted">Note : {{ $review->rating }}/5</p>
