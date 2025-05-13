@@ -73,7 +73,7 @@ Route::put('/avis/{id}', [ReviewController::class, 'update'])->name('avis.update
 Route::get('props/price-asc', [PropertiesController::class, 'priceAsc'])->name('price.asc.prop');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-    Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
+Route::get('index', [App\Http\Controllers\Admins\AdminsController::class, 'index1'])->name('admins.dashboard1');
     Route::get('allUsers', [App\Http\Controllers\Admins\AdminsController::class, 'allUsers'])->name('users.display');
     Route::get('createUsers', [App\Http\Controllers\Admins\AdminsController::class, 'createUsers'])->name('users.create');
     Route::post('createUser', [App\Http\Controllers\Admins\AdminsController::class, 'storeUsers'])->name('users.store');

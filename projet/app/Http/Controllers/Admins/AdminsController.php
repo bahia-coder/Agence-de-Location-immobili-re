@@ -25,6 +25,16 @@ class AdminsController extends Controller
 
         return view('admins.index');
     }
+
+   public function index1()
+{
+    $props_count = Property::count();
+    $home_types_count = HomeType::count();
+    $adminsCount = Admin::count();
+    $usersCount = User::count(); // <- ajout ici
+
+    return view('admins.index', compact('props_count', 'home_types_count', 'adminsCount', 'usersCount'));
+}
     public function viewLogin()
     {
         return view('admins.login');
@@ -35,7 +45,7 @@ class AdminsController extends Controller
         $remember_me = $request->has('remember_me') ? true : false;
 
         if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me)) {
-            return redirect()->route('admins.dashboard');
+            return redirect()->route('admins.dashboard1');
         } else {
             return redirect()->back()->with(['error' => 'Error logging in']);
         }
@@ -108,7 +118,7 @@ class AdminsController extends Controller
             'agent_name' => 'required|string|max:255',
             'type' => 'required|string|max:255',
             'city'=> 'required|string|max:255',
-           
+
         ]);
 
         $destinationPath = 'assets/images/';

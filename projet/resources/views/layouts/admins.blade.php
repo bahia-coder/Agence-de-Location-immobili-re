@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav side-nav">
                         @auth('admin')
-                           
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,6 +40,12 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" style="margin-left: 20px;"
+                                    href="{{ route('admins.dashboard1') }}">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.display') }}"
@@ -64,7 +70,7 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                      
+
                     @endauth
                     </ul>
                 </div>
