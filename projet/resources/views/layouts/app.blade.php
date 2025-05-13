@@ -73,6 +73,12 @@
                             <li><a href="{{ route('rent1.prop') }}">Rent</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('contact') }}">Contact</a></li>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 5b5098e (contact)
 
                             @guest
                                 @if (Route::has('login'))
