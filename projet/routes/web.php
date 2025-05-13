@@ -39,6 +39,8 @@ Route::group(['prefix' => 'props'], function () {
     Route::get('type/Buy', [App\Http\Controllers\Props\PropertiesController::class, 'propsBuy'])->name('buy.prop');
     Route::get('type/Rent', [App\Http\Controllers\Props\PropertiesController::class, 'propsRent'])->name('rent.prop');
 
+    Route::get('type/Rent', [App\Http\Controllers\Props\PropertiesController::class, 'propsR'])->name('rent1.prop');
+
     // Displaying props by home type
     Route::get('home_type/{home_type}', [App\Http\Controllers\Props\PropertiesController::class, 'displayByHomeType'])->name('display.prop.hometype');
 

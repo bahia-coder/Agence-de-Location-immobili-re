@@ -212,6 +212,24 @@ public function saveProps(Request $request, $id)
 
      }
 
+       public function propsRent()
+    {
+        $type = "Rent";
+        $propsrents = Property::where('type', $type)->get();
+
+        return view('props.propsrent1', compact('propsrents'));
+    }
+
+
+
+     public function propsR()
+    {
+        $type = "Rent";
+        $propsrents = Property::where('type', $type)->get();
+
+        return view('props.propsrent1', compact('propsrents'));
+    }
+
 
 
 
