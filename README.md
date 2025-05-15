@@ -7,7 +7,7 @@ Ce projet a pour but de faciliter la location des maison
 ## Membres de l’équipe
 - TAIMOURIA EL BAHIA
 - HAMIDI NOUR EL HOUDA
-- ASILA JAMILA
+- ASSILA JAMILA
 - LAMRIKHI ABDESSAMAD
 
 ## Liste des fonctionnalités principales
