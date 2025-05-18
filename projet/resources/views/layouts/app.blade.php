@@ -75,7 +75,10 @@
                             <li><a href="{{ route('contact') }}">Contact</a></li>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 5b5098e (contact)
 =======
 >>>>>>> 5b5098e (contact)
 
